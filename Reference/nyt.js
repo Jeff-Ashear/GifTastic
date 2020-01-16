@@ -30,13 +30,13 @@ $(document).ready(function() {
 
             for (var i = 0; i < results.length; i++) {
                 console.log(results[i]);
-                //let articleHtml = $("<article>");
-                //let headline = $("<h3>").text(article.headline.print_headline || article.headline.main);
-                //let dateJs = new Date(article.pub_date)
-                //let date = $("<h5>").text(dateJS.toDateString());
-                //let summary = $("<p>").text(article.snippet);
-                //articleHtml.append(headline, date, summary);
-                //$("#articles").append(articleHtml);
+                let articleHtml = $("<article>");
+                let headline = $("<h3>").text(article.headline.print_headline || article.headline.main);
+                let dateJs = new Date(article.pub_date)
+                let date = $("<h5>").text(dateJS.toDateString());
+                let summary = $("<p>").text(article.snippet);
+                articleHtml.append(headline, date, summary);
+                $("#articles").append(articleHtml);
 
 
             }
@@ -52,8 +52,9 @@ $(document).ready(function() {
             $("#searchTerm").val().trim(),
             $("#numberOfRecords").val(),
             $("#searchDateBegin").val().trim(),
-            $("#searchDateEnd").val().trim()
-        );
+            $("#searchDateEnd").val().trim(),
+            console.log("search term: " + searchTerm)
+            );
 
 
     })
