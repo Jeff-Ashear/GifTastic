@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>test</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="nyt.js"></script>
+    <style type="stylesheet/text">
+        h3 {font-family: 'Courier New', Courier, monospace; font-size: 18px; text-align: center;}
+    </style>
+</head>
+
+<body>
+
+    <div style="background-image: url('https://i.pinimg.com/474x/70/0f/cf/700fcfa43f96fcd63498d5065a8b0dfa.jpg'); background-image: cover;">
+
+        <header class="navbar bg-dark">New York Times Search</header>
+        <aside></aside>
+        <main style="background: rgba(255, 255, 255, 0.8); margin: 20px;">
+            <h2>Search Parameters</h2>
+            <div>
+                <input id="searchTerm" type="text" cols="100">What do you want to search?</input>
+            </div>
+            <br>
+            <div id="numberOfRecords">
+                <label>
+                    <h3>Number of Records</h3>
+                </label>
+                <input name="slider" type="range" min="0" max="10" step="1">
+            </div>
+            <br>
+            <div id="searchDateBegin">
+                <label>
+                    <h3>Begin Search</h3>
+                </label>
+                <input name="text" maxlength="4">
+            </div>
+            <div id="searchDateEnd">
+                <label>
+                    <h3>End Search Year</h3>
+                </label>
+                <input name=text maxlength="4">
+
+            </div>
+
+            <button id="search" class="btn btn-dark">SEARCH</button>
+            <button id="clear" class="btn btn-dark">Clear Results</button>
+
+            <!--DIV for your Search Results-->
+            <div id="resultsListing"></div>
+        </main>
+        <br>
+        <br>
+        <footer>Footer for future stuff</footer>
+    </div>
+
+
+
+</body>
+
+</html
