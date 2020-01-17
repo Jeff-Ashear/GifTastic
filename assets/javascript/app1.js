@@ -12,7 +12,7 @@ var topics = [
 ];
 
 for (var i = 0; i < topics.length; i++) {
-    var buttons = $('<button>' + topics[i] + '</button>')
+    var buttons = $('<button id="buttonNum' + [i] + '">"' + topics[i] + '</button>')
     buttons.appendTo("#buttonDiv");
 };
 
