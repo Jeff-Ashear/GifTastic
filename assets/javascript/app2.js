@@ -1,8 +1,8 @@
 //array to hold buttons values
 var topics = [
     "Ellen Ripley",
-    "Ash",
-    "Thomas Kane",
+    "Dwayne Hicks",
+    "Xenomorph",
     "Arthur Dallas",
     "Dennis Parker",
     "Samuel Brett",
@@ -37,9 +37,28 @@ $("button").on("click", function() {
 
         for (var j = 0; j < results.length; j++) {
 
+            var gifDiv = $("<div>");
+
+            var rating = results[j].rating;
+
+            var p = $("<p>").text("Rating: " + rating);
+
+            var gifStill = $("<img>");
+            gifStill.attr("src", results[j].images.fixed_height.url);
+
+            gifDiv.prepend(p);
+            gifDiv.prepend(gifStill);
+
+            $("#gif-Feed").prepend(gifDiv);
+            console.log(gifDiv)
             
+
         }
     });
 
 
 })
+
+// $("img").on("click", function() {
+//     var thisIMG = $(this).attr("src")
+// })
