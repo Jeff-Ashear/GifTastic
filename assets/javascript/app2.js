@@ -24,11 +24,22 @@ $("button").on("click", function() {
     var thisGIF = $(this).attr("data-gif");
     console.log("click")
     console.log(thisGIF)
+    //inserts the value of the button clicked into a giphy search query
     var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + thisGIF + "&api_key=8S6m8Ed7pFQS1y8sTnybvoCJPvAbRWYW&limit=10";
 
     $.ajax({
-        queryURL
+        url: queryURL,
+        method: "GET"
     })
+    .then(function(response){
+        var results = response.data;
+        console.log(response)
+
+        for (var j = 0; j < results.length; j++) {
+
+            
+        }
+    });
 
 
 })
