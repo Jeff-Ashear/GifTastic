@@ -3,13 +3,17 @@ var topics = [
     "Ellen Ripley",
     "Dwayne Hicks",
     "Xenomorph",
-    "Arthur Dallas",
-    "Dennis Parker",
-    "Samuel Brett",
-    "Joan Lambert",
-    "Big Chap",
-    "Xenomorph",
-    "a bean",
+    "Yaphet Kotto",
+    "Bolaji Badejo",
+    "Facehugger",
+    "Niander Wallace",
+    "Rick Deckard",
+    "Roy Batty",
+    "Millenium Falcon",
+    "The Big Lebowski",
+    "Alex Honnold",
+    "El Cap",
+    "Half Dome"
 
 ];
 
