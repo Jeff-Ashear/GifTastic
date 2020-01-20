@@ -47,8 +47,9 @@ $("button").on("click", function() {
 
             var p = $("<p>").text("Rating: " + rating);
 
-            var gifStill = $("<img>");
-            gifStill.attr("src", results[j].images.fixed_height.url);
+            var gifStill = $('<img class="gif" data-state="still">');
+            gifStill.attr("src", results[j].images.fixed_height_still.url);
+
 
             gifDiv.prepend(p);
             gifDiv.prepend(gifStill);
@@ -58,11 +59,16 @@ $("button").on("click", function() {
             
 
         }
+        $(".gif").on("click", function() {
+            console.log("CLICKED GIF");
+            console.log(this)
+        
+
+            // gifStill.attr("src", results[j].images.fixed_height.url)
+        });
     });
-
-
 })
 
-// $("img").on("click", function() {
-//     var thisIMG = $(this).attr("src")
-// })
+//function to start and stop the gif's animations
+
+    //variable to store the still or animated state of the gif
