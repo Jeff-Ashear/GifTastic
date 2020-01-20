@@ -58,14 +58,26 @@ $("button").on("click", function() {
             console.log(gifDiv)
             
 
+            $(".gif").on("click", function() {
+                console.log("CLICKED GIF");
+                console.log(this)
+                var state = $(this).attr("data-state");
+                // var gifAnimated = $("img")
+                // var gifAnimated = $(this).attr
+                if (state == "still") {
+                    $(this).attr("data-state", "animate")                    
+                    $(this).attr("src", results[j].images.fixed_height.url);
+                    // $(this).attr("src", "results" + [j] + ".images.fixed_height.url");
+     
+                } else if (state == "animate") { 
+                    $(this).attr("data-state", "still")
+                    $(this).attr("src", results[j].images.fixed_height_still.url)
+                } 
+                // gifStill.attr("src", results[j].images.fixed_height.url)
+    
+                
+            });
         }
-        $(".gif").on("click", function() {
-            console.log("CLICKED GIF");
-            console.log(this)
-        
-
-            // gifStill.attr("src", results[j].images.fixed_height.url)
-        });
     });
 })
 
