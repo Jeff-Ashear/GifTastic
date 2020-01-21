@@ -65,10 +65,10 @@ $("button").on("click", function() {
                 // var gifAnimated = $("img")
                 // var gifAnimated = $(this).attr
                 if (state == "still") {
-                    $(this).attr("data-state", "animate")                    
-                    $(this).attr("src", results[j].images.fixed_height.url);
+                    var gifAnimate = $(this).attr("data-state", "animate")                    
+                    gifAnimate.attr("src", results[j].images.fixed_height.url);
+                    console.log(this)
                     // $(this).attr("src", "results" + [j] + ".images.fixed_height.url");
-     
                 } else if (state == "animate") { 
                     $(this).attr("data-state", "still")
                     $(this).attr("src", results[j].images.fixed_height_still.url)
