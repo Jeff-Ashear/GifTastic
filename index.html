@@ -19,18 +19,27 @@
 
     <div id="buttonDiv">
         <h2>Click a button to see some GIFs.</h2>
-    </div>
+    </div><hr>
 
-    <div class="searchField">
-        <h3>Add a new button:</h3>
+    <!-- <div class="searchField">
         <div class="input-group mb-3">
             <div class="input-group-prepend">
               <span class="input-group-text" id="inputGroup-sizing-default" id="searchTerm">Submit</span>
             </div>
-            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            <input type="text" class="form-control" id="userInput" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Add a new button">
           </div>
+    </div> -->
+    <div class="searchField">
+        <form action="value"> 
+            <input type="text", id="userInput", size="300" placeHolder="Add a button"></input>
+            <button id="buttonSubmit">Submit</button>
+        </form>
     </div>
-
+    
+    
+    <hr>
+    <div id="searchChecker"><p></p></div>
+    
     <div id="gif-Feed">
 
     </div>
