@@ -23,7 +23,7 @@ var topics = [
 
 //looping the array to append the buttons to the html
 for (var i = 0; i < topics.length; i++) {
-    var buttons = $('<button data-gif="' + topics[i] + '">' + topics[i] + '</button>')
+    var buttons = $('<button class="gifBtn" data-gif="' + topics[i] + '">' + topics[i] + '</button>')
     buttons.appendTo("#buttonDiv");
 };
 
@@ -38,17 +38,18 @@ $("#buttonSubmit").on("click", function(event) {
     console.log(topics)
     $("#buttonDiv").empty();
     for (var i = 0; i < topics.length; i++) {
-        var buttons = $('<button data-gif="' + topics[i] + '">' + topics[i] + '</button>')
+        var buttons = $('<button class="gifBtn" data-gif="' + topics[i] + '">' + topics[i] + '</button>')
         buttons.appendTo("#buttonDiv");
     };
     $("#userInput").val('');
+    
     
 });
 
 
 
 //clicking a button catches the value of that button
-$("button").on("click", function() {
+$(".gifBtn").on("click", function() {
     var thisGIF = $(this).attr("data-gif");
     console.log("click")
     console.log(thisGIF)
