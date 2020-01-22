@@ -47,16 +47,19 @@ $("button").on("click", function() {
 
             var p = $("<p>").text("Rating: " + rating);
 
-            var gifStill = $('<img class="gif" data-state="still">');
-            gifStill.attr("src", results[j].images.fixed_height_still.url);
-
+            var gifStart = $('<img class="gif" data-state="still">');
+            gifStart.attr("src", results[j].images.fixed_height_still.url);
+            gifStart.attr("<data-still=" + results[j].fixed_height_still.url + ">");
+            gifStart.attr("<data-animated=" + results[j].fixed_height.url + ">");
 
             gifDiv.prepend(p);
-            gifDiv.prepend(gifStill);
+            gifDiv.prepend(gifStart);
 
             $("#gif-Feed").prepend(gifDiv);
             console.log(gifDiv)
             
+            // var gifAnimated = $(".gif", 'data-state="animated"');
+            // gifAnimated.attr("src", results[j].images.fixed_height.url);
 
             $(".gif").on("click", function() {
                 console.log("CLICKED GIF");
@@ -65,8 +68,8 @@ $("button").on("click", function() {
                 // var gifAnimated = $("img")
                 // var gifAnimated = $(this).attr
                 if (state == "still") {
-                    $(this).attr("data-state", "animate")                    
-                    $(this).attr("src", results[j].images.fixed_height.url);
+                    var gifAnimate = $(this).attr("data-state", "animate")                    
+                    gifAnimate.$(this).attr("src", results[j].images.fixed_height.url);
                     console.log(this)
                     // $(this).attr("src", "results" + [j] + ".images.fixed_height.url");
                 } else if (state == "animate") { 
