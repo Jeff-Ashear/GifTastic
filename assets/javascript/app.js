@@ -23,6 +23,25 @@ for (var i = 0; i < topics.length; i++) {
     buttons.appendTo("#buttonDiv");
 };
 
+//storing the value of the form input, and appending user input to the button array
+
+$("#buttonSubmit").on("click", function(event) {
+    event.preventDefault();
+    console.log("form click")
+    var input = $("#userInput").val().trim();
+    topics.push(input)
+    // console.log(input)
+    console.log(topics)
+    $("#buttonDiv").empty();
+    for (var i = 0; i < topics.length; i++) {
+        var buttons = $('<button data-gif="' + topics[i] + '">' + topics[i] + '</button>')
+        buttons.appendTo("#buttonDiv");
+    };
+   
+});
+
+
+
 //clicking a button catches the value of that button
 $("button").on("click", function() {
     var thisGIF = $(this).attr("data-gif");
@@ -31,6 +50,7 @@ $("button").on("click", function() {
     //inserts the value of the button clicked into a giphy search query
     var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + thisGIF + "&api_key=8S6m8Ed7pFQS1y8sTnybvoCJPvAbRWYW&limit=10";
 
+    //ajax promise
     $.ajax({
         url: queryURL,
         method: "GET"
@@ -39,6 +59,7 @@ $("button").on("click", function() {
         var results = response.data;
         console.log(response)
 
+        //iterating the rusults of the query, and grabbing the appropriate data to append to the html
         for (var j = 0; j < results.length; j++) {
 
             var gifDiv = $("<div>");
@@ -47,22 +68,33 @@ $("button").on("click", function() {
 
             var p = $("<p>").text("Rating: " + rating);
 
-            var gifStill = $("<img>");
-            gifStill.attr("src", results[j].images.fixed_height.url);
-
+            var gifStart = $('<img class="gif" data-state="still">');
+            gifStart.attr("src", results[j].images.fixed_height_still.url); gifStart.attr("data-still", results[j].images.fixed_height_still.url);
+            gifStart.attr("data-animated", results[j].images.fixed_height.url);
+           
             gifDiv.prepend(p);
-            gifDiv.prepend(gifStill);
+            gifDiv.prepend(gifStart);
 
             $("#gif-Feed").prepend(gifDiv);
             console.log(gifDiv)
             
-
+            //function to start and stop animations
+            $(".gif").on("click", function() {
+                
+                console.log("CLICKED GIF");
+                console.log(this)
+                var state = $(this).attr("data-state");
+                
+                if (state === "still") {
+                   $(this).attr("src", $(this).attr("data-animated"));
+                   $(this).attr("data-state", "animate");
+                   console.log("this again: " + this)
+                } else if (state === "animate") { 
+                   $(this).attr("src", $(this).attr("data-still"));
+                   $(this).attr("data-state", "still");
+                }  
+                
+            });
         }
     });
-
-
-})
-
-// $("img").on("click", function() {
-//     var thisIMG = $(this).attr("src")
-// })
+});

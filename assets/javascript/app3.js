@@ -6,14 +6,18 @@ var topics = [
     "Yaphet Kotto",
     "Bolaji Badejo",
     "Facehugger",
-    "Niander Wallace",
+    "Twin Peaks",
+    "Blue Velvet",
+    "David Lynch",
     "Rick Deckard",
     "Roy Batty",
     "Millenium Falcon",
     "The Big Lebowski",
     "Alex Honnold",
-    "El Cap",
-    "Half Dome"
+    "Half Dome",
+    "RGB",
+    "Hypnotoad",
+    "Bender",
 
 ];
 
@@ -37,7 +41,8 @@ $("#buttonSubmit").on("click", function(event) {
         var buttons = $('<button data-gif="' + topics[i] + '">' + topics[i] + '</button>')
         buttons.appendTo("#buttonDiv");
     };
-   
+    $("#userInput").val('');
+    
 });
 
 
