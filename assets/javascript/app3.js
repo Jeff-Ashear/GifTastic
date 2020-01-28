@@ -63,23 +63,23 @@ $(".gifBtn").on("click", function() {
             $("#gif-Feed").prepend(gifDiv);
             console.log(gifDiv)
             
-            //function to start and stop animations
-            $(".gif").on("click", function() {
-                
-                console.log("CLICKED GIF");
-                console.log(this)
-                var state = $(this).attr("data-state");
-                
-                if (state === "still") {
-                    $(this).attr("src", $(this).attr("data-animated"));
-                    $(this).attr("data-state", "animate");
-                    console.log("this again: " + this)
-                } else if (state === "animate") { 
-                    $(this).attr("src", $(this).attr("data-still"));
-                    $(this).attr("data-state", "still");
-                }   
-            });   
         } 
+        //function to start and stop animations
+        $(".gif").on("click", function() {
+            
+            console.log("CLICKED GIF");
+            console.log(this)
+            var state = $(this).attr("data-state");
+            
+            if (state === "still") {
+                $(this).attr("src", $(this).attr("data-animated"));
+                $(this).attr("data-state", "animate");
+                console.log("this again: " + this)
+            } else if (state === "animate") { 
+                $(this).attr("src", $(this).attr("data-still"));
+                $(this).attr("data-state", "still");
+            }   
+        });   
     });   
 });
 
