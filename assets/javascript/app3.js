@@ -18,7 +18,6 @@ var topics = [
     "RGB",
     "Hypnotoad",
     "Bender",
-
 ];
 
 //looping the array to append the buttons to the html
@@ -28,7 +27,7 @@ for (var i = 0; i < topics.length; i++) {
 };
 
 //clicking a button catches the value of that button
-$(".gifBtn").on("click", function() {
+$(document).on("click", ".gifBtn", function() {
     var thisGIF = $(this).attr("data-gif");
     console.log("click")
     console.log(thisGIF)
@@ -91,12 +90,14 @@ $("#buttonSubmit").on("click", function(event) {
     topics.push(input)
     // console.log(input)
     console.log(topics)
-    $("#buttonDiv").empty();
-    for (var i = 0; i < topics.length; i++) {
-        var buttons = $('<button class="gifBtn" data-gif="' + topics[i] + '">' + topics[i] + '</button>')
-        buttons.appendTo("#buttonDiv");
-        console.log(topics)
-    };
+    var button = $('<button class="gifBtn" data-gif="' + input + '">' + input + '</button>')
+    $("#buttonDiv").append(button);
+    // $("#buttonDiv").empty();
+    // for (var i = 0; i < topics.length; i++) {
+    //     var buttons = $('<button class="gifBtn" data-gif="' + topics[i] + '">' + topics[i] + '</button>')
+    //     buttons.appendTo("#buttonDiv");
+    //     console.log(topics)
+    // };
     $("#userInput").val('');
     $("header").css("background-color", "green");
 });
