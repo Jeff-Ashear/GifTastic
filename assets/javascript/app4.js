@@ -45,21 +45,24 @@ $(document).on("click", ".gifBtn", function() {
         //iterating the rusults of the query, and grabbing the appropriate data to append to the html
         for (var j = 0; j < results.length; j++) {
             
-            var gifDiv = $('<div id="gifDiv">');
+            var gifDiv = $('<div id="gifDiv"><div id="contols"></div></div>');
             
             var rating = results[j].rating;
             
-            var p = $('<p class="row" class="controls">').text('Rating: ' + rating + "  ");
+            var p = $('<p>').text('Rating: ' + rating + "  ");
 
-            var favBtn = $('.controls').html('<button id="favoriteBtn">Favorite Me</button>');
+            var favBtn = $('<button id="favoriteBtn' + [j] + '">Favorite Me</button>');
             
             var gifStart = $('<img class="gif" data-state="still">');
             gifStart.attr("src", results[j].images.fixed_height_still.url); gifStart.attr("data-still", results[j].images.fixed_height_still.url);
             gifStart.attr("data-animated", results[j].images.fixed_height.url);
             
-            gifDiv.prepend(p);
-            gifDiv.prepend(gifStart);
-            p.append(favBtn);
+            gifDiv.append(gifStart);
+            console.log("gifDiv is happened on ", thisGIF);
+            gifDiv.append(p);
+            console.log("appending P happened on ", thisGIF);
+            favBtn.appendTo("#controls");
+            console.log("appending favBtn happened on ", thisGIF);
 
             $("#gif-Feed").prepend(gifDiv);
             console.log(gifDiv)
