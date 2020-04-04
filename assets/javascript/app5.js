@@ -114,6 +114,8 @@ $("#buttonSubmit").on("click", function(event) {
 
 $(document).on("click", "#favoriteBtn", function(event) {
     event.preventDefault;
-    favoriteMe = $(this).find(".gif", $(this).attr("src"));
+    // favoriteMe = $(this).find(".gif", $(this).attr("data-still"));
+    // favoriteMe = $(this).find("#gifDiv", $(this).attr("src"));
+    favoriteMe = $(this).find("#gifDiv", $(this).find("src"));
     console.log("Favorite clicked! It was ", favoriteMe);
 });
