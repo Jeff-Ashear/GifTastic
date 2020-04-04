@@ -63,7 +63,8 @@ $(document).on("click", ".gifBtn", function() {
             console.log("gifDiv is happened on ", thisGIF);
             gifDiv.append(p);
             console.log("appending P happened on ", thisGIF);
-            favBtn.appendTo("#controls");
+            // favBtn.appendTo("#controls");
+            p.append(favBtn);
             console.log("appending favBtn happened on ", thisGIF);
 
             $("#gif-Feed").prepend(gifDiv);
@@ -78,9 +79,11 @@ $(document).on("click", ".gifBtn", function() {
             var state = $(this).attr("data-state");
             
             if (state === "still") {
+                var zTHisIs = $(this).attr("src", $(this).attr("data-animated"));
                 $(this).attr("src", $(this).attr("data-animated"));
                 $(this).attr("data-state", "animate");
                 console.log("this again: " + this)
+                console.log("This is zTHisIs alright: ", zTHisIs);
             } else if (state === "animate") { 
                 $(this).attr("src", $(this).attr("data-still"));
                 $(this).attr("data-state", "still");
@@ -111,6 +114,6 @@ $("#buttonSubmit").on("click", function(event) {
 
 $(document).on("click", "#favoriteBtn", function(event) {
     event.preventDefault;
-    favoriteMe = $(this).find(".gif", $(this).src());
+    favoriteMe = $(this).find(".gif", $(this).attr("src"));
     console.log("Favorite clicked! It was ", favoriteMe);
 });
