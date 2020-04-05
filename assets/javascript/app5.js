@@ -47,7 +47,7 @@ $(document).on("click", ".gifBtn", function() {
         //iterating the rusults of the query, and grabbing the appropriate data to append to the html
         for (var j = 0; j < results.length; j++) {
             
-            var gifDiv = $('<div id="gifDiv"><div id="controls"></div></div>');
+            var gifDiv = $('<div id="gifDiv">');
             
             var rating = results[j].rating;
             
@@ -64,7 +64,7 @@ $(document).on("click", ".gifBtn", function() {
             gifDiv.append(p);
             console.log("appending P happened on ", thisGIF);
             // favBtn.appendTo("#controls");
-            p.append(favBtn);
+            gifDiv.append(favBtn);
             console.log("appending favBtn happened on ", thisGIF);
 
             $("#gif-Feed").prepend(gifDiv);
@@ -112,10 +112,17 @@ $("#buttonSubmit").on("click", function(event) {
     $("header").css("background-color", "green");
 });
 
+
+//When the favorite button is clicked, the appropiate gif appears in the favorites feed.
 $(document).on("click", "#favoriteBtn", function(event) {
     event.preventDefault;
     // favoriteMe = $(this).find(".gif", $(this).attr("data-still"));
     // favoriteMe = $(this).find("#gifDiv", $(this).attr("src"));
-    favoriteMe = $(this).find("#gifDiv", $(this).find("src"));
+    // favoriteMe = $(this).parent().attr("src");
+    favoriteMe = $(this).parent("div");
+    favoriteGif = favoriteMe[0].innerHTML
     console.log("Favorite clicked! It was ", favoriteMe);
+    console.log("Here's hoping: ", favoriteGif);
+    $("#favoriteFeed").prepend(favoriteGif).html;
+
 });

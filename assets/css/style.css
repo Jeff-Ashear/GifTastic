@@ -27,7 +27,7 @@ button:hover {
     padding: 4px 4px;
 }
 
-#gif-Feed {
+#gif-Feed, #favoriteFeed {
     border-width: 2px;
     border-style: dashed;
     border-color: green;
