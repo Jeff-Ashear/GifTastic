@@ -27,6 +27,16 @@ for (var i = 0; i < topics.length; i++) {
     buttons.appendTo("#buttonDiv");
 };
 
+// $(document).ready(function(){
+//    localStorage.getItem.forEach(favGifStored =>
+//         console.log("From storage: ", localStorage.favGifStored));
+// });
+
+$(document).ready(function() {
+    console.log("From storage: ", localStorage.favGifStored)
+    $("#givDivFavs").html(localStorage.favGifStored)
+});
+
 //clicking a button catches the value of that button
 $(document).on("click", ".gifBtn", function () {
     var thisGIF = $(this).attr("data-gif");
@@ -48,8 +58,9 @@ $(document).on("click", ".gifBtn", function () {
             for (var j = 0; j < results.length; j++) {
 
                 var gifDiv = $('<div id="gifDiv">');
+                var title = results[j].title
                 var rating = results[j].rating;
-                var p = $('<p>').text('Rating: ' + rating + "  ");
+                var p = $('<p>').html('Title: ' + title + '<br>' + 'Rating: ' + rating + "  ");
                 var favBtn = $('<button id="favoriteBtn">Favorite Me</button>');
                 var gifStart = $('<img class="gif" data-state="still">');
 
@@ -83,7 +94,8 @@ $(document).on("click", ".gifBtn", function () {
                 console.log("Favorite clicked! It was ", favoriteMe);
                 console.log("Here's hoping: ", favoriteGif);
                 $("#favoriteFeed").prepend(favoriteGif).html;
-                favoriteGif = $("#favoriteBtn").detach();
+                // favoriteGif = $("#favoriteBtn").detach();
+                localStorage.setItem("favGifStored", favoriteMe[0].innerHTML);
 
             });
 
