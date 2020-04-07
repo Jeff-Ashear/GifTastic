@@ -79,16 +79,17 @@ $(document).on("click", ".gifBtn", function () {
                 // favoriteMeToo = favoriteMeToo.spilt('<button id="favoriteBtn">Favorite Me</button>');
                 // console.log("favoriteMeToo: ", favoriteMeToo);
                 // favoriteGif = $('<div id="gifDiv">' + favoriteMeToo + '</div>');
-                favoriteGif = $('<div id="gifDiv">' + favoriteMe[0].innerHTML + '</div>');
+                favoriteGif = $('<div id="gifDivFavs">' + favoriteMe[0].innerHTML + '</div>');
                 console.log("Favorite clicked! It was ", favoriteMe);
                 console.log("Here's hoping: ", favoriteGif);
                 $("#favoriteFeed").prepend(favoriteGif).html;
+                favoriteGif = $("#favoriteBtn").detach();
 
             });
 
             
             //function to start and stop animations
-            $(".gif").on("click", function () {
+            $(document).on("click", ".gif", function () {
                 
                 console.log("CLICKED GIF");
                 console.log(this)
