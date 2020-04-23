@@ -28,13 +28,14 @@ for (var i = 0; i < topics.length; i++) {
 };
 
 // $(document).ready(function(){
-//    localStorage.getItem.forEach(favGifStored =>
-//         console.log("From storage: ", localStorage.favGifStored));
+// //    localStorage.getItem.forEach(favGifStored =>
+// //         console.log("From storage: ", localStorage.favGifStored));
+//         $("#favoriteFeed").append(localStorage.getItem(favGifStored));
 // });
 
 $(document).ready(function() {
     console.log("From storage: ", localStorage.favGifStored)
-    $("#givDivFavs").html(localStorage.favGifStored)
+    $("#givDivFavs").append(localStorage.getItem("favGifStored"));
 });
 
 //clicking a button catches the value of that button
